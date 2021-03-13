@@ -65,6 +65,8 @@ The primary decision construct determines if there is a value of the format #rrg
 
 The program uses multiple loops to iterate through an array and a vector. 
 
+I had some help from Todd Gibson with authoring another loop to replace the for loop that I had written initially. 
+
 ### File Input and Output
 
 !!!Replace with a summary and examples of how input and/or output of files have been used effectively and appropriately!!!

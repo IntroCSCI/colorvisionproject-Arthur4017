@@ -51,6 +51,39 @@ vector<int> rgb(100);
  //cin >> input; 
      position = input.find("#");
  
+// README While loop co-authored with T Gibbson
+
+int ind=0;
+while(ind<input.size())
+{
+  if(input[ind]=='#')
+  {
+    ind++;
+    while(ind<input.size() && (input[ind]>='0' && input[ind]<='9' || input[ind]>='a' && input[ind]<='f'))
+      ind++; //loop as long as we are finding valid characters
+    //if index==input.size() then we're done
+    //otherwise if input[index] is not a space then it must be an invalid character
+    rgb.push_back(position);
+            
+           stringstream color_number(color);
+
+           cout << rgb.size() << endl;
+
+           color_number >> hex >> rgb.at(0);
+
+           cout << rgb.at(0) << '\n';
+  }
+  else 
+  {
+    if(input[ind] <= 'A' && input[ind] <= 'z')
+    break;
+    //input[index] is either a space or an invalid character,
+  }
+  ind++;
+}
+
+/*
+
       if(input[position] > 0)
       {
         for( int index = position ; index < input.size() ; index ++) 
@@ -66,7 +99,7 @@ vector<int> rgb(100);
           ) // If he symbol is between 1 & 9 or  between a - f  . . .
           {
             
-            color = input.at('#');
+            color = input;
             //color_number >> hex >> rgb.at(index);
             
             /*(for(int gout; gout< rgb.size(); gout++)
@@ -74,7 +107,7 @@ vector<int> rgb(100);
              
             cout << hex << rgb[gout]; // . . .then repeat the symbol to cout
 
-            } */
+            } 
 
           } else {break;}
           
@@ -86,17 +119,17 @@ vector<int> rgb(100);
 
             } */
 
-        } //end of for-loop
-           rgb.push_back(position);
+        //} //end of for-loop
+           //rgb.push_back(position);
             
-           stringstream color_number(color);
+           //stringstream color_number(color);
 
-           cout << rgb.size() << endl;
+           //cout << rgb.size() << endl;
 
-           color_number >> hex >> rgb.at(position);
+           //color_number >> hex >> rgb.at(position);
 
-           cout << rgb.at(position) << '\n';
-      } // end of position if
+           //cout << rgb.at(position) << '\n'; */
+      //} // end of position if
 
 
 
