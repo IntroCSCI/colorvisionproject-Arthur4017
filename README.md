@@ -2,7 +2,12 @@
 
 ## Description
 
-!!!Replace with a description of what your program does!!!
+
+palette analyzer
+(intended funtion)
+-read user input file
+-identify colors by nex number
+-tell the user if there is a high red value
 
 ### v0.2 Updates
 
@@ -15,11 +20,11 @@
 
 ## Developer
 
-!!!Replace with your name!!!
+Arthur Matter
 
 ## Example
 
-To run the program, give the following commands:
+The program should based on where it is now, repeat to the user what hex numbers they have typed to cin
 
 ```
 g++ --std=c++11 *.cpp -o cvp
@@ -28,8 +33,10 @@ g++ --std=c++11 *.cpp -o cvp
 
 Here is an example of the program running:
 
-```
-!!!Replace with an example of the program running with user interaction!!!
+Enter the color values inlcuding the '#' sign of each value. Hit 'enter' when complete.
+(User input)#123456 #ffea56 #afde23
+
+(program output)#123456 #ffea56 #afde23
 ```
 
 ## C++ Guide
@@ -38,21 +45,32 @@ Here is an example of the program running:
 
 !!!Replace with a summary and examples of how multiple variables have been used with a variety of data types and why they have been used effectively and appropriately!!!
 
+I used multiple strings to identfy the characters within the hex number that was supposed to be input. Then I converted those strings into hex values and stored those hex values into an integer variable. I also decided to use the size_t data type based on how it is applied in an assignment because that seemed like it would make my work easier at the time.
+
 ### Console Input and Output
 
 !!!Replace with a summary and examples of how input and output have been used effectively and appropriately!!!
+
+The user enters in a value in the format #rrggbb.
 
 ### Decisions
 
 !!!Replace with a summary and examples of how multiple decision constructs have been used effectively and appropriately!!!
 
+The primary decision construct determines if there is a value of the format #rrggbb. A secondary if statement identifies whether or not the value read into the program is a hex value. 
+
 ### Iteration
 
 !!!Replace with a summary and examples of how iteration has been used effectively and appropriately!!!
 
+The program uses multiple loops to iterate through an array and a vector. 
+
 ### File Input and Output
 
 !!!Replace with a summary and examples of how input and/or output of files have been used effectively and appropriately!!!
+
+There is code written for opening a file and reading from the file but I decided to focus my efforts on the user interaction for the deliverable so that code is ultimately untested. 
+The program should be able to open a css file and read in any value of the format #rrggbb. 
 
 ### Arrays/Vectors
 
