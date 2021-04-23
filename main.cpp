@@ -1,28 +1,66 @@
-//Arthur Matter
-#include <iostream>
+#include<iostream>
 #include<vector>
-#include<fstream>
 #include<sstream>
+#include<fstream>
 using namespace std;
 
-int main() {
-  /*int he;
-  cout << "Enter hex number. Number will be converted to decimal." << endl;
-  cin >> hex >> he;
-  cout << dec << he;
-*/
+vector<string> fileSearch();
+bool isHexColor(const string &);
+bool isRed();
+
+int main(){
+//read in file
+//check file for #hex numbers
+//put #123 & #123456 hex values in string vector
+//read hex numbers from vector to verify that they are hex numbers
+//use function to check the first 1 (or 2) hex characters for color red
+vector<string> colorNumber;
+string num1 = "123456";
+string num2 = "ffe3c0";
+string num3 = "ab14c6";
+string num4 = "abc";
+string num5 = "123";
+string num6 = "babeu&";
+// function call : file instream
+
+
+fileSearch(); // I/O file WORKING!!
+// function call : is hex number 
+cout << "Hex test values:" << endl;
+cout << isHexColor(num1) << endl; 
+cout << isHexColor(num2) << endl;
+cout << isHexColor(num3) << endl;
+cout << isHexColor(num4) << endl;
+cout << isHexColor(num5) << endl;
+cout << isHexColor(num6) << endl;
+
+
+if (isRed(num5)){
+  cout << "Entered value has red color" << endl;
+}
+
+cout << "Check for 'BUGS' in context." << endl;
+
+
+}
+
+
+
+vector<string> fileSearch(){
 
 size_t position;
+int reference = 0;
 string input;
 string color;
-string hold;
-vector<int> rgb(100);
+string tempHold;
+vector<int> rgb;
+vector<string> potHex;
+double index = 0;
 
-/*
+
  string fileName = "";
       ifstream reader;
       string line = "";
-      size_t position;
       int amount;
       cout<<"Please enter the file to be opened:\n";
       getline(cin, fileName);
@@ -35,104 +73,52 @@ vector<int> rgb(100);
           position = line.find("#");
           if ( line[position] )
           {
-            for (char amount = position += 1; line[amount] >= '0' && line[amount] <= 'f'; amount++ )
-            {
-              cout<< line[amount];
-            }
+            tempHold = line.substr(position+1, 6);
+            cout << tempHold << endl;
+            if(tempHold == ""){
+             potHex[reference] = tempHold;
+             reference++;
+            } 
+           
           }
         }
       }
+      
       reader.close();
-
-*/
- cout << "Enter the color values inlcuding the '#' sign of each value. Hit 'enter' when complete." << endl;
- 
-   getline(cin,input);
- //cin >> input; 
-     position = input.find("#");
- 
-// README While loop co-authored with T Gibbson
-
-int ind=0;
-while(ind<input.size())
-{
-  if(input[ind]=='#')
-  {
-    ind++;
-    while(ind<input.size() && (input[ind]>='0' && input[ind]<='9' || input[ind]>='a' && input[ind]<='f'))
-      ind++; //loop as long as we are finding valid characters
-    //if index==input.size() then we're done
-    //otherwise if input[index] is not a space then it must be an invalid character
-    rgb.push_back(position);
-            
-           stringstream color_number(color);
-
-           cout << rgb.size() << endl;
-
-           color_number >> hex >> rgb.at(0);
-
-           cout << rgb.at(0) << '\n';
-  }
-  else 
-  {
-    if(input[ind] <= 'A' && input[ind] <= 'z')
-    break;
-    //input[index] is either a space or an invalid character,
-  }
-  ind++;
+return potHex;
 }
 
 /*
+ isHexColor - take a string, and determine whether or not it contains: 
+  - only hexadecimal values (0-9, A-F either upper or lower case)
+  - AND either 3 or 6 total characters
+*/
+bool isHexColor( const string &values ){
 
-      if(input[position] > 0)
-      {
-        for( int index = position ; index < input.size() ; index ++) 
-        {
-          if( (input[index] >= '0' && input[index] <= '9') 
-          || (input.find('a') < input.length()) ||
-          (input.find('b') < input.length()) ||
-          (input.find('c') < input.length()) ||
-          (input.find('d') < input.length()) ||
-          (input.find('e') < input.length()) ||
-          (input.find('f') < input.length()) ||
-          (input.find('#') < input.length())
-          ) // If he symbol is between 1 & 9 or  between a - f  . . .
-          {
-            
-            color = input;
-            //color_number >> hex >> rgb.at(index);
-            
-            /*(for(int gout; gout< rgb.size(); gout++)
-            {
-             
-            cout << hex << rgb[gout]; // . . .then repeat the symbol to cout
+  if( values.length() == 3 || values.length() == 6 ){
+    for(int i=0; i < values.length(); i++){
+      if( !(values[i] >= '0' && values[i] <='9') &&
+          !(values[i] >= 'a' && values[i] <= 'f') &&
+          !(values[i] >= 'A' && values[i] <= 'F') ){
+            return false;
+      }
+    }
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 
-            } 
+bool isRed(const string color)
+{
+ string compare = color.substr(color[0], color[1]); 
 
-          } else {break;}
-          
-          
-           /* for(int gout; gout <= rgb.size(); gout++)
-            {
-             
-            cout << hex << rgb.at(gout); // . . .then repeat the symbol to cout
+ if( (compare >= "1" && compare <= "9") && 
+     (compare >= "a" && compare <= "f") &&
+     (compare >= "A" && compare <= "F")
+ ){ return false;}
 
-            } */
+ else{ return true;}
 
-        //} //end of for-loop
-           //rgb.push_back(position);
-            
-           //stringstream color_number(color);
-
-           //cout << rgb.size() << endl;
-
-           //color_number >> hex >> rgb.at(position);
-
-           //cout << rgb.at(position) << '\n'; */
-      //} // end of position if
-
-
-
-
-  return 0;
-} //end of main
+}

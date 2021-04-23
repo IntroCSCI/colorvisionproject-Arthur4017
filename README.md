@@ -11,7 +11,10 @@ palette analyzer
 
 ### v0.2 Updates
 
-*Coming soon*
+The program can now read in a file and successfully pull potential hex color values out of the document and place them in a substring.
+
+The program can also successfully test a value to determine whether or not the series of characters in the string represents a hex color number.
+
 
 ### v1.0 Updates
 
@@ -24,19 +27,16 @@ Arthur Matter
 
 ## Example
 
-The program should based on where it is now, repeat to the user what hex numbers they have typed to cin
+The program should initially prompt the user to input a file. A .css file that was provided for an example was used during the making and debugging of the program. Once the filename is entered the program will then open the file and read through it to check for potential hex color numbers. Once a series of numbers has been identified they are then individually stored in a vector so that they can be put into a function that checks whether or not they are colors. The program will then run some test values for the function that checks if a string is a hex color. After this the program will display a message to the console.
 
 ```
-g++ --std=c++11 *.cpp -o cvp
+g++ --std=c++17 *.cpp -o cvp
 ./cvp
 ```
 
 Here is an example of the program running:
 
-Enter the color values inlcuding the '#' sign of each value. Hit 'enter' when complete.
-(User input)#123456 #ffea56 #afde23
 
-(program output)#123456 #ffea56 #afde23
 ```
 
 ## C++ Guide
@@ -51,36 +51,39 @@ I used multiple strings to identfy the characters within the hex number that was
 
 !!!Replace with a summary and examples of how input and output have been used effectively and appropriately!!!
 
-The user enters in a value in the format #rrggbb.
+The user enters in the name of the file that they would like to have checked for hex color values, the program will then output a list of potential hex color values.
 
 ### Decisions
 
 !!!Replace with a summary and examples of how multiple decision constructs have been used effectively and appropriately!!!
 
-The primary decision construct determines if there is a value of the format #rrggbb. A secondary if statement identifies whether or not the value read into the program is a hex value. 
+Decision is used in the fileSearch() function  to determine: if the file reader is open, if any strings are located using the # to locate strings, and to place those strings into a vector.
+
+Decision is used in the isHexColor() function to  identify whether or not a string is a hex color. 
+
+Decision is used in the isRed() function to determine whether or not a hex color has any amount of the color red.
+
 
 ### Iteration
 
 !!!Replace with a summary and examples of how iteration has been used effectively and appropriately!!!
 
-The program uses multiple loops to iterate through an array and a vector. 
-
-I had some help from Todd Gibson with authoring another loop to replace the for loop that I had written initially. 
+The program uses a sinlge while loop to repeat the process of placing potential hex color values into a string, and thereafter into a vector.
 
 ### File Input and Output
 
 !!!Replace with a summary and examples of how input and/or output of files have been used effectively and appropriately!!!
 
-There is code written for opening a file and reading from the file but I decided to focus my efforts on the user interaction for the deliverable so that code is ultimately untested. 
-The program should be able to open a css file and read in any value of the format #rrggbb. 
+The file input/output stream now works as intended.
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+A vector is returned from a function. The vector is created to hold a list of potential hex values.
 
 ### Functions
 
-*Coming in version 0.2*
+Each separate task that the program does is now broken up into functions. 
+
 
 ### Classes
 
