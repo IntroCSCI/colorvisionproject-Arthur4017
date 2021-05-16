@@ -39,7 +39,7 @@ for (int i=0; colorNumber.size()> i; i++)
    }
 }
 
-cout << "Check for 'BUGS' in context." << endl;
+return 0;
 
 }
 
@@ -87,4 +87,3 @@ double index = 0;
       reader.close();
 return Hex;
 }
-

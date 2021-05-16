@@ -27,7 +27,7 @@ Arthur Matter
 
 ## Example
 
-The program should initially prompt the user to input a file. A .css file that was provided for an example was used during the making and debugging of the program. Once the filename is entered the program will then open the file and read through it to check for potential hex color numbers. Once a series of numbers has been identified they are then individually stored in a vector so that they can be put into a function that checks whether or not they are colors. The program will then run some test values for the function that checks if a string is a hex color. After this the program will display a message to the console.
+The program should initially prompt the user to input a file. A .css file that was provided for an example was used during the making and debugging of the program. Once the filename is entered the program will then open the file and read through it to check for potential hex color numbers. Once a series of numbers has been identified they are then individually stored in a vector so that they can be put into a function that checks whether or not they are colors. Once six digit hex number have been identified they are then passed to a function that checks whether or not there is any red present in those colors.
 
 ```
 g++ --std=c++17 *.cpp -o cvp
@@ -36,6 +36,9 @@ g++ --std=c++17 *.cpp -o cvp
 
 Here is an example of the program running:
 
+cpu : "Please enter the file to be opened:"
+user : example.css
+cpu : returns a list of the six digit hex values in the program that have red values in the first two positions followed by the indicator "contains red". 
 
 
 
@@ -45,44 +48,49 @@ Here is an example of the program running:
 
 !!!Replace with a summary and examples of how multiple variables have been used with a variety of data types and why they have been used effectively and appropriately!!!
 
-I used multiple strings to identfy the characters within the hex number that was supposed to be input. Then I converted those strings into hex values and stored those hex values into an integer variable. I also decided to use the size_t data type based on how it is applied in an assignment because that seemed like it would make my work easier at the time.
+Strings were used to store potential hex values that were collected from the .css file that the user entered. Variables of type size_t were used to identify the position of potential hex values within the user entered file. Class Color type variables were used to store colors once they had been pulled from the file. Class Color type variables were also used to create a vector to store hex values.
 
 ### Console Input and Output
 
 
-
-The user enters in the name of the file that they would like to have checked for hex color values, the program will then output a list of potential hex color values.
+The user enters in the name of the file that they would like to have checked for hex color values, the program will then output a list hex color numbers that contain red. 
 
 ### Decisions
 
 
-Decision is used in the fileSearch() function  to determine: if the file reader is open, if any strings are located using the # to locate strings, and to place those strings into a vector.
+Decision is used in the hexSearch() function  to determine: if the file reader is open, if any strings are located using the # to locate strings, and to place those strings into a vector.
 
 Decision is used in the isHexColor() function to  identify whether or not a string is a hex color. 
 
 Decision is used in the isRed() function to determine whether or not a hex color has any amount of the color red.
+
+Decision is used in the main() function to return to the user the values that contain red.
 
 
 ### Iteration
 
 
 
-The program uses a sinlge while loop to repeat the process of placing potential hex color values into a string, and thereafter into a vector.
+The program uses a while loop to repeat the process of placing potential hex color values into a string, and thereafter into a vector.
+
+The main() function uses a for loop to iterate through the vector that contains Color values.
 
 ### File Input and Output
 
 
 The file input/output stream now works as intended.
+A file can be entered to the user and searched for values, then closed successfully.
 
 ### Arrays/Vectors
 
-A vector is returned from a function. The vector is created to hold a list of potential hex values. The size is indeterminable at the time of compilation as the program has to evaluate a file of unknown size so a vector was used to hold the string values.
+Vectors are used to move the list of Color values from the function that searches a user entered file to the main function and to store the list of Color values taken from a searched file.
 
 ### Functions
 
-The functions exist to make the program much easier to read and debug. Prior to having the functions they were creating a rat nest of code, now things are more decipherable and divided into neat packages. Functions were also necessary because the tasks that this program needs to complete are each too complex to be included in the main function. 
+The majority of functions now exist within the Color class. The function isHexColor() is used to iterate through values and determine whether or not the character string is a hex coded color.
+The function isRed() determines if a value entered, that is an already confirmed hex color, has red in the first two characters of the hex string.
 
 
 ### Classes
 
-*Coming in version 1.0*
+The Color class contains the essentials for identifying and filtering out hex values from a file. It is used to create a Color type variable which is then implemented as a vector variable type. The Color class contains the constructor that allows a user to create a list of intialized Color type variables. 
