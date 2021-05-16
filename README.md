@@ -1,4 +1,4 @@
-# !!!Replace with your unique project name!!!
+# Arthur's Technicolor Dream Coat
 
 ## Description
 
@@ -7,11 +7,11 @@ palette analyzer
 (intended funtion)
 -read user input file
 -identify colors by nex number
--tell the user if there is a high red value
+-tell the user if there are red colors present within the file entered
 
 ### v0.2 Updates
 
-The program can now read in a file and successfully pull potential hex color values out of the document and place them in a substring.
+The program can now read in a file and successfully pull potential hex color values out of the document and place them in a vector.
 
 The program can also successfully test a value to determine whether or not the series of characters in the string represents a hex color number.
 
@@ -37,7 +37,7 @@ g++ --std=c++17 *.cpp -o cvp
 Here is an example of the program running:
 
 
-```
+
 
 ## C++ Guide
 
@@ -49,13 +49,12 @@ I used multiple strings to identfy the characters within the hex number that was
 
 ### Console Input and Output
 
-!!!Replace with a summary and examples of how input and output have been used effectively and appropriately!!!
+
 
 The user enters in the name of the file that they would like to have checked for hex color values, the program will then output a list of potential hex color values.
 
 ### Decisions
 
-!!!Replace with a summary and examples of how multiple decision constructs have been used effectively and appropriately!!!
 
 Decision is used in the fileSearch() function  to determine: if the file reader is open, if any strings are located using the # to locate strings, and to place those strings into a vector.
 
@@ -66,23 +65,22 @@ Decision is used in the isRed() function to determine whether or not a hex color
 
 ### Iteration
 
-!!!Replace with a summary and examples of how iteration has been used effectively and appropriately!!!
+
 
 The program uses a sinlge while loop to repeat the process of placing potential hex color values into a string, and thereafter into a vector.
 
 ### File Input and Output
 
-!!!Replace with a summary and examples of how input and/or output of files have been used effectively and appropriately!!!
 
 The file input/output stream now works as intended.
 
 ### Arrays/Vectors
 
-A vector is returned from a function. The vector is created to hold a list of potential hex values.
+A vector is returned from a function. The vector is created to hold a list of potential hex values. The size is indeterminable at the time of compilation as the program has to evaluate a file of unknown size so a vector was used to hold the string values.
 
 ### Functions
 
-Each separate task that the program does is now broken up into functions. 
+The functions exist to make the program much easier to read and debug. Prior to having the functions they were creating a rat nest of code, now things are more decipherable and divided into neat packages. Functions were also necessary because the tasks that this program needs to complete are each too complex to be included in the main function. 
 
 
 ### Classes
