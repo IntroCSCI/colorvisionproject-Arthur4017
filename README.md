@@ -6,7 +6,7 @@
 palette analyzer
 (intended funtion)
 -read user input file
--identify colors by nex number
+-identify colors by hex number
 -tell the user if there are red colors present within the file entered
 
 ### v0.2 Updates
@@ -18,7 +18,7 @@ The program can also successfully test a value to determine whether or not the s
 
 ### v1.0 Updates
 
-*Coming soon*
+The finished program can successfully read a file, store values from the file that could be 
 
 
 ## Developer
@@ -46,9 +46,9 @@ cpu : returns a list of the six digit hex values in the program that have red va
 
 ### Variables and Data Types
 
-!!!Replace with a summary and examples of how multiple variables have been used with a variety of data types and why they have been used effectively and appropriately!!!
 
 Strings were used to store potential hex values that were collected from the .css file that the user entered. Variables of type size_t were used to identify the position of potential hex values within the user entered file. Class Color type variables were used to store colors once they had been pulled from the file. Class Color type variables were also used to create a vector to store hex values.
+
 
 ### Console Input and Output
 
@@ -85,12 +85,24 @@ A file can be entered to the user and searched for values, then closed successfu
 
 Vectors are used to move the list of Color values from the function that searches a user entered file to the main function and to store the list of Color values taken from a searched file.
 
+The function hexSearch() returns a vector of Color type to the main() function where it is stored in another vector of Color type named colorNumber.
+The vector Hex in hexSearch() is used to store the potential hex number values.
+
 ### Functions
 
-The majority of functions now exist within the Color class. The function isHexColor() is used to iterate through values and determine whether or not the character string is a hex coded color.
+The majority of functions now exist within the Color class. 
+
+The function isHexColor() is used to iterate through values and determine whether or not the character string is a hex coded color.
+
 The function isRed() determines if a value entered, that is an already confirmed hex color, has red in the first two characters of the hex string.
+
+The function hexSearch() is used to identify potential hex color numbers in a file and transfer them to the main function (or with some adjustments anywhere) so that they can be identified as real values or discarded. 
 
 
 ### Classes
 
 The Color class contains the essentials for identifying and filtering out hex values from a file. It is used to create a Color type variable which is then implemented as a vector variable type. The Color class contains the constructor that allows a user to create a list of intialized Color type variables. 
+
+Object Oriented Design :
+Modular design makes the program easier to debug and test in sections. If there are any issues with the program it can be broken up into its pieces to be fixed.
+It is also easier to implement changes, especially with the creation of the Color type variables. Modifying and creating Color variables can make the program easier to combine with other complementary programs. 
